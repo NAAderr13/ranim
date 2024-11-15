@@ -1,4 +1,4 @@
-package com.ndrcodes.studentsystem;
+package com.projet.covoiturage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

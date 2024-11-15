@@ -1,7 +1,7 @@
-package com.ndrcodes.studentsystem.controller;
+package com.projet.covoiturage.controller;
 
-import com.ndrcodes.studentsystem.model.Student;
-import com.ndrcodes.studentsystem.service.StudentService;
+import com.projet.covoiturage.model.user;
+import com.projet.covoiturage.service.covService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +14,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("/student")
 @CrossOrigin
-public class StudentController {
+public class CovoiturageController {
     @Autowired
-    private StudentService studentService;
+    private covService studentService;
 
     @PostMapping("/add")
-    public String add(@RequestBody Student student){
+    public String add(@RequestBody user student){
         studentService.saveStudent(student);
         return "New student is added";
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Map<String, Object>> signUp(@RequestBody Student student) {
+    public ResponseEntity<Map<String, Object>> signUp(@RequestBody user student) {
         Map<String, Object> response = new HashMap<>();
         String email = student.getEmail();
         String password = student.getPassword();
@@ -46,7 +46,7 @@ public class StudentController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> signIn(@RequestBody Student student) {
+    public ResponseEntity<?> signIn(@RequestBody user student) {
         String email = student.getEmail();
         String password = student.getPassword();
 
@@ -55,7 +55,7 @@ public class StudentController {
         System.out.println("Password: " + password);
 
         // Vérifiez si l'utilisateur existe
-        Student existingStudent = studentService.findByEmail(email);
+        user existingStudent = studentService.findByEmail(email);
 
         Map<String, Object> response = new HashMap<>();
 
@@ -72,7 +72,7 @@ public class StudentController {
 
 
     @GetMapping("/get")
-    public List<Student> list(){
+    public List<user> list(){
         return studentService.getAllStudents();
     }
 }

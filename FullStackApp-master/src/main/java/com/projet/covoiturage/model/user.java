@@ -1,4 +1,4 @@
-package com.ndrcodes.studentsystem.model;
+package com.projet.covoiturage.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Student {
+public class user {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
