@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.arjuncodes</groupId>
-	<artifactId>covoiturageSystem</artifactId>
+	<artifactId>studentsystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>studentsystem</name>
 	<description>Full stack application using Spring Boot and react</description>

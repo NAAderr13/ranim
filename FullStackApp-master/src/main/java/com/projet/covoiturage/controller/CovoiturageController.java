@@ -45,6 +45,7 @@ public class CovoiturageController {
         return ResponseEntity.ok(response); // Renvoie une réponse 200 OK
     }
 
+
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@RequestBody user student) {
         String email = student.getEmail();
