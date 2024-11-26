@@ -5,13 +5,15 @@ import com.projet.covoiturage.model.user;
 import java.util.List;
 
 public interface covService {
-    void saveStudent(user User);
-
-    void saveUser(user User);
-
-    List<user> getAllUsers();
-
+    void saveStudent(user student);
     List<user> getAllStudents();
 
+ 
+
+
     user findByEmail(String email);
+
+    user findById(Long id);
+
+    void deleteUser(Long id);
 }
