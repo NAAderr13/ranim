@@ -14,8 +14,18 @@ public class covServiceImpl implements covService {
     private covRepository studentRepository;
 
     @Override
-    public user saveStudent(user student) {
-        return studentRepository.save(student);
+    public void saveStudent(user User) {
+
+    }
+
+    @Override
+    public void saveUser(user User) {
+        studentRepository.save(User);
+    }
+
+    @Override
+    public List<user> getAllUsers() {
+        return List.of();
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.projet.covoiturage.service;
 
-import com.projet.covoiturage.model.Offer;
-import com.projet.covoiturage.repository.OfferRepository;
+import com.projet.covoiturage.model.user;
+import com.projet.covoiturage.repository.covRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,24 +9,37 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OfferService {
+public class covServicelmpl implements covService {
 
     @Autowired
-    private OfferRepository offerRepository;
+    private covRepository studentRepository;
 
-    // Méthode pour enregistrer une nouvelle offre
-    public Offer saveOffer(Offer offer) {
-        // Vous pouvez ajouter des validations ou des transformations supplémentaires ici
-        return offerRepository.save(offer);
+    // Enregistrer ou mettre à jour un utilisateur
+    @Override
+    public void saveStudent(user student) {
+        studentRepository.save(student);
     }
 
-    // Méthode pour obtenir une offre par son identifiant
-    public Optional<Offer> getOffer(Long id) {
-        return offerRepository.findById(id);
-    }
-    public List<Offer> getAllOffers() {
-        return offerRepository.findAll();
+    // Récupérer tous les utilisateurs
+    @Override
+    public List<user> getAllStudents() {
+        return studentRepository.findAll();
     }
 
-    // Vous pouvez ajouter d'autres méthodes pour gérer les offres (ex. récupérer toutes les offres)
+    // Trouver un utilisateur par son email
+    @Override
+    public user findByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
+
+    // Trouver un utilisateur par son ID
+    public user findById(Long id) {
+        Optional<user> student = studentRepository.findById(id);
+        return student.orElse(null); // Retourne null si l'utilisateur n'est pas trouvé
+    }
+
+    // Supprimer un utilisateur par son ID
+    public void deleteUser(Long id) {
+        studentRepository.deleteById(id);
+    }
 }

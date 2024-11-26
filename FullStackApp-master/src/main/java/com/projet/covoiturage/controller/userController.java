@@ -1,7 +1,7 @@
 package com.projet.covoiturage.controller;
 
 import com.projet.covoiturage.model.user;
-import com.projet.covoiturage.service.covService;
+import com.projet.covoiturage.service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.Map;
 @CrossOrigin
 public class CovoiturageController {
     @Autowired
-    private covService studentService;
+    private userService studentService;
 
     @PostMapping("/add")
     public String add(@RequestBody user student){
