@@ -1,38 +1,25 @@
 package com.projet.covoiturage.model;
 
+import java.time.LocalDate;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Column;
 
 @Entity
 public class Offer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true)
     private String startingLocation;
-
-    @Column(nullable = true)
     private String destination;
 
-    @Column(nullable = true)
-    private String date;
+    private LocalDate date;  // Utilisation de LocalDate au lieu de String
 
-    @Column(nullable = true)
-    private String seats;
-
-    @Column(nullable = true)
+    private int seats;
     private String phone;
-
-    @Column(nullable = true)
     private String additionalInfo;
 
-    // Getters and Setters
-
+    // Getters et setters
     public Long getId() {
         return id;
     }
@@ -57,19 +44,19 @@ public class Offer {
         this.destination = destination;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public String getSeats() {
+    public int getSeats() {
         return seats;
     }
 
-    public void setSeats(String seats) {
+    public void setSeats(int seats) {
         this.seats = seats;
     }
 

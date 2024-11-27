@@ -3,6 +3,9 @@ package com.projet.covoiturage.repository;
 import com.projet.covoiturage.model.Offer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface OfferRepository extends JpaRepository<Offer, Long> {
-    // Vous pouvez ajouter des méthodes de recherche personnalisées si nécessaire.
+    List<Offer> findByDestinationAndStartingLocation(String destination, String startingLocation);
+    // Ici tu peux ajouter des méthodes de recherche spécifiques si nécessaire
 }
