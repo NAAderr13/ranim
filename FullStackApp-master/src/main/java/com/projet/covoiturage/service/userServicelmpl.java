@@ -9,37 +9,39 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class covServiceImpl implements covService {
+public class userServicelmpl implements userService {
 
     @Autowired
-    private covRepository studentRepository;
+    private covRepository userRepository; // Remplacement de studentRepository par userRepository
 
     // Enregistrer ou mettre à jour un utilisateur
     @Override
-    public void saveStudent(user student) {
-        studentRepository.save(student);
+    public void saveUser(user user) {
+        userRepository.save(user);
     }
 
     // Récupérer tous les utilisateurs
     @Override
-    public List<user> getAllStudents() {
-        return studentRepository.findAll();
+    public List<user> getAllUsers() { // Remplacement de getAllStudents par getAllUsers
+        return userRepository.findAll();
     }
 
     // Trouver un utilisateur par son email
     @Override
     public user findByEmail(String email) {
-        return studentRepository.findByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     // Trouver un utilisateur par son ID
+    @Override
     public user findById(Long id) {
-        Optional<user> student = studentRepository.findById(id);
-        return student.orElse(null); // Retourne null si l'utilisateur n'est pas trouvé
+        Optional<user> user = userRepository.findById(id);
+        return user.orElse(null); // Retourne null si l'utilisateur n'est pas trouvé
     }
 
     // Supprimer un utilisateur par son ID
+    @Override
     public void deleteUser(Long id) {
-        studentRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 }
